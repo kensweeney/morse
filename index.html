@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Morse Tutor</title>
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>Morse Tutor</h1>
+      <div class="score-box">
+        <span id="score">Score: 0 / 0</span>
+        <button id="btn-reset-score" title="Reset score">Reset</button>
+      </div>
+      <div id="wpm-label" class="wpm-label">20 WPM</div>
+    </header>
+
+    <nav class="tabs">
+      <button id="tab-receiver" class="tab active">Receiver</button>
+      <button id="tab-sender" class="tab">Sender</button>
+    </nav>
+
+    <section id="receiver-controls" class="controls">
+      <fieldset>
+        <legend>Character set</legend>
+        <label><input type="checkbox" id="set-letters" checked /> Letters</label>
+        <label><input type="checkbox" id="set-numbers" /> Numbers</label>
+        <label><input type="checkbox" id="set-punct" /> Punctuation</label>
+      </fieldset>
+      <label class="koch-control">
+        Koch level
+        <input type="range" id="koch-level" min="2" max="40" value="40" />
+        <span id="koch-level-value">40</span>
+      </label>
+      <div class="actions">
+        <button id="btn-start" class="primary">Start</button>
+        <button id="btn-replay" disabled>Replay</button>
+      </div>
+      <div id="receiver-status" class="status">Press Start to begin.</div>
+    </section>
+
+    <section id="sender-controls" class="controls hidden">
+      <fieldset>
+        <legend>Playback</legend>
+        <label><input type="radio" name="sendmode" value="immediate" checked /> Immediate</label>
+        <label><input type="radio" name="sendmode" value="buffered" /> Type, then press Enter</label>
+      </fieldset>
+      <input
+        type="text"
+        id="send-text"
+        class="send-text hidden"
+        placeholder="Type text here, press Enter to play"
+        spellcheck="false"
+      />
+      <div id="sender-status" class="status">Click keys or type on your keyboard to hear Morse.</div>
+    </section>
+
+    <main id="keyboard" class="keyboard"></main>
+
+    <script type="module" src="/src/renderer.js"></script>
+  </body>
+</html>
